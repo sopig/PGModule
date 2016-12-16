@@ -7,12 +7,24 @@
 //
 
 #import "DetailViewController.h"
+#import "AntModuleManager.h"
+#import "AntCommandExecutor.h"
+#import "AntCommand.h"
 
 @interface DetailViewController ()
 
 @end
 
 @implementation DetailViewController
+
+- (void)antload
+{
+    AntRegisterModuleURI(@"com.DetailViewController");
+}
+
+
+//AntRegisterModuleURI(@"https://www.baidu.com/a/index.html#part3?a=1&b=2");
+
 
 - (void)configureView {
     // Update the user interface for the detail item.
@@ -26,8 +38,21 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     [self configureView];
+    
+    
+ 
+    
 }
 
+- (void)notFound:(id)sender
+{
+     ;
+}
+
+- (void)a:(id)sender
+{
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -46,5 +71,9 @@
     }
 }
 
+- (void)dealloc
+{
+    
+}
 
 @end

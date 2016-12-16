@@ -9,12 +9,23 @@
 #import "MasterViewController.h"
 #import "DetailViewController.h"
 
+#import "AntCommand.h"
+#import "AntCommandExecutor.h"
+#import "AntModuleManager.h"
+#import "AntFunctionsHandler.h"
+
 @interface MasterViewController ()
 
 @property NSMutableArray *objects;
 @end
 
 @implementation MasterViewController
+
+- (void)antload
+{
+    AntRegisterModuleURI(@"com.MasterViewController"); // 给一个默认的id
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -24,6 +35,7 @@
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+    
 }
 
 
@@ -40,13 +52,35 @@
 
 
 - (void)insertNewObject:(id)sender {
+    
+//    AntCommand *cmd = [AntCommand new];
+//    cmd.target = @"com.DetailViewController";
+//    cmd.action = @"a:";
+//    cmd.input = @{@"k":@"v"};
+    
+    
+    AntCommandExecute(
+                      
+                      AntCommandCreate
+                      .bUrl(@"https://www.baidu.com/a/index.html?a=1&b=2#part3")
+                      .bTarget(@"com.DetailViewController")
+                      .bAction(@"a:")
+                      .bInput(@{@"k":@"v"})
+                      .bActionType(AntCommandActionTypeSelector)
+                      
+                      );
+    
+    
+#if 0
     if (!self.objects) {
         self.objects = [[NSMutableArray alloc] init];
     }
     [self.objects insertObject:[NSDate date] atIndex:0];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+#endif
 }
+
 
 
 #pragma mark - Segues
