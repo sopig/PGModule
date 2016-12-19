@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1842DA5B1E0416AD00741187 /* AntString.m in Sources */ = {isa = PBXBuildFile; fileRef = 1842DA591E0416AD00741187 /* AntString.m */; };
 		1842DA5E1E0796CB00741187 /* AntRouterCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1842DA5D1E0796CB00741187 /* AntRouterCenter.m */; };
+		1842DA631E07C4A100741187 /* AntMount.m in Sources */ = {isa = PBXBuildFile; fileRef = 1842DA621E07C4A100741187 /* AntMount.m */; };
+		1842DA661E07CAC500741187 /* AntUIComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 1842DA651E07CAC500741187 /* AntUIComponent.m */; };
 		18596E3F1E02713000263CEF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18596E3E1E02713000263CEF /* main.m */; };
 		18596E421E02713000263CEF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18596E411E02713000263CEF /* AppDelegate.m */; };
 		18596E451E02713000263CEF /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18596E441E02713000263CEF /* MasterViewController.m */; };
@@ -31,6 +33,10 @@
 		1842DA591E0416AD00741187 /* AntString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AntString.m; sourceTree = "<group>"; };
 		1842DA5C1E0796CB00741187 /* AntRouterCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AntRouterCenter.h; sourceTree = "<group>"; };
 		1842DA5D1E0796CB00741187 /* AntRouterCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AntRouterCenter.m; sourceTree = "<group>"; };
+		1842DA5F1E07C29400741187 /* AntMount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AntMount.h; sourceTree = "<group>"; };
+		1842DA621E07C4A100741187 /* AntMount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AntMount.m; sourceTree = "<group>"; };
+		1842DA641E07CAC500741187 /* AntUIComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AntUIComponent.h; sourceTree = "<group>"; };
+		1842DA651E07CAC500741187 /* AntUIComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AntUIComponent.m; sourceTree = "<group>"; };
 		18596E3A1E02713000263CEF /* AntModulePlayground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AntModulePlayground.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18596E3E1E02713000263CEF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		18596E401E02713000263CEF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -117,6 +123,8 @@
 		18596E571E02714200263CEF /* AntModule */ = {
 			isa = PBXGroup;
 			children = (
+				1842DA5F1E07C29400741187 /* AntMount.h */,
+				1842DA621E07C4A100741187 /* AntMount.m */,
 				1842DA561E0416AD00741187 /* AntRouter.h */,
 				1842DA581E0416AD00741187 /* AntString.h */,
 				1842DA591E0416AD00741187 /* AntString.m */,
@@ -137,6 +145,8 @@
 				18596E661E02714200263CEF /* AntRuntime.m */,
 				1842DA5C1E0796CB00741187 /* AntRouterCenter.h */,
 				1842DA5D1E0796CB00741187 /* AntRouterCenter.m */,
+				1842DA641E07CAC500741187 /* AntUIComponent.h */,
+				1842DA651E07CAC500741187 /* AntUIComponent.m */,
 			);
 			path = AntModule;
 			sourceTree = "<group>";
@@ -217,8 +227,10 @@
 				18596E6D1E02714200263CEF /* AntRuntime.m in Sources */,
 				18596E421E02713000263CEF /* AppDelegate.m in Sources */,
 				18596E6C1E02714200263CEF /* AntResident.m in Sources */,
+				1842DA631E07C4A100741187 /* AntMount.m in Sources */,
 				18596E691E02714200263CEF /* AntFunctionsHandler.m in Sources */,
 				18596E681E02714200263CEF /* AntCommandExecutor.m in Sources */,
+				1842DA661E07CAC500741187 /* AntUIComponent.m in Sources */,
 				1842DA5B1E0416AD00741187 /* AntString.m in Sources */,
 				1842DA5E1E0796CB00741187 /* AntRouterCenter.m in Sources */,
 				18596E451E02713000263CEF /* MasterViewController.m in Sources */,

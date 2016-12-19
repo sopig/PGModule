@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "AntCommand.h"
+#import "AntMount.h"
 
-@protocol AntRouter <NSObject>
+@protocol AntRouter <NSObject,AntMount>
 
 @required
-- (void)mount; //挂载
 
 - (void)openUrl:(NSURL *)url patch:(id)patch;
 

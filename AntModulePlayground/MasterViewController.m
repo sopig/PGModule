@@ -64,13 +64,15 @@
 //    cmd.input = @{@"k":@"v"};
     
     @defer{
-    
+        NSLog(@"2");
     };
+    
+    NSLog(@"1");
     
     AntCommandExecute(
                       
                       AntCommandCreate
-                      .bUrl(@"http://www.baidu.com/a/index.html?a=1&b=2#part3")
+                      .bUrl(@"https://www.baidu.com/a/index.html?a=1&b=2#part3")
                       .bTarget(@"com.DetailViewController")
                       .bAction(@"a:")
                       .bInput(@{@"k":@"v"})

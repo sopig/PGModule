@@ -180,7 +180,6 @@
 - (void)doURLCommand:(AntCommand *)cmd
 {
 
-    
     NSURL *url = [NSURL URLWithString:cmd.url];
     
     if ( !url )
@@ -189,11 +188,6 @@
         return;
     }
     
-//    NSString *scheme = url.scheme;
-//    NSString *host = url.host;
-//    NSString *path = url.path;
-//    NSString *query = url.query;
-//    NSString *fragment = url.fragment;
     
     NSString *router =  [AntModuleManagerInstance findModule:url.scheme];
     
