@@ -9,24 +9,25 @@
 #import "AntModuleManager.h"
 #import <objc/runtime.h>
 #import "AntRuntime.h"
+
+
 @implementation NSObject (AntModuleManager)
 
 + (void)load
 {
-
     for ( NSString *className in [self loadedClassNames] )
     {
         Class classType = NSClassFromString( className );
         if ( classType == self )
             continue;
         
-        if ([classType instancesRespondToSelector:NSSelectorFromString(@"antload")])
+        if ([classType instancesRespondToSelector:NSSelectorFromString(@"mount")])
         {
             @autoreleasepool
             {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-            [[classType new] performSelector:NSSelectorFromString(@"antload")];
+            [[classType new] performSelector:NSSelectorFromString(@"mount")];
 #pragma clang diagnostic pop
 
             }
@@ -35,6 +36,7 @@
     }
     
 }
+
 
 - (BOOL)registerComponent:(NSString *)URI
 {
@@ -138,6 +140,23 @@ AntModuleManager_AutoLoad;
     }
     
     return NO;
+}
+
+- (BOOL)registerRouter:(NSString *)router forScheme:(NSString *)scheme
+{
+    if (!router || !scheme)
+    {
+        return NO;
+    }
+    
+    NSArray *allURI = [__modules__ allKeys];
+    
+    NSAssert(![allURI containsObject:scheme],([NSString stringWithFormat:@"[%@]scheme重复，已被注册",scheme]));
+    
+    [__modules__ setObject:router forKey:scheme];
+    
+    
+    return YES;
 }
 
 

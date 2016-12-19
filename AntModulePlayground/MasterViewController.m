@@ -13,6 +13,7 @@
 #import "AntCommandExecutor.h"
 #import "AntModuleManager.h"
 #import "AntFunctionsHandler.h"
+#import "AntRuntime.h"
 
 @interface MasterViewController ()
 
@@ -42,6 +43,10 @@
 - (void)viewWillAppear:(BOOL)animated {
     self.clearsSelectionOnViewWillAppear = self.splitViewController.isCollapsed;
     [super viewWillAppear:animated];
+    
+    @defer{
+       
+    };
 }
 
 
@@ -58,15 +63,18 @@
 //    cmd.action = @"a:";
 //    cmd.input = @{@"k":@"v"};
     
+    @defer{
+    
+    };
     
     AntCommandExecute(
                       
                       AntCommandCreate
-                      .bUrl(@"https://www.baidu.com/a/index.html?a=1&b=2#part3")
+                      .bUrl(@"http://www.baidu.com/a/index.html?a=1&b=2#part3")
                       .bTarget(@"com.DetailViewController")
                       .bAction(@"a:")
                       .bInput(@{@"k":@"v"})
-                      .bActionType(AntCommandActionTypeSelector)
+                      .bActionType(AntCommandActionTypeURL)
                       
                       );
     

@@ -50,4 +50,7 @@
 - (id)findModule:(NSString *)URI;
 
 - (BOOL)registerBlock:(NSString *)URI toBlock:(id (^)(NSDictionary *option))block;
+
+- (BOOL)registerRouter:(NSString *)router forScheme:(NSString *)scheme;
+
 @end

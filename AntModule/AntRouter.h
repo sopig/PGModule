@@ -7,11 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-
-#import "AntModuleManager.h"
+#import "AntCommand.h"
 
 @protocol AntRouter <NSObject>
 
+@required
+- (void)mount; //挂载
+
+- (void)openUrl:(NSURL *)url patch:(id)patch;
 
 @end
 

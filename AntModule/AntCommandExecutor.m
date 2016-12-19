@@ -12,7 +12,7 @@
 #import "AntModuleManager.h"
 #import "AntFunctionsHandler.h"
 #import "AntString.h"
-
+#import "AntRouter.h"
 
 @interface AntCommandExecutor ()
 {
@@ -83,12 +83,12 @@
         return self;
     }
     
-    //指定寻找
-    else
-    {
-        [self doNativeCommand:command];
-        return self;
-    }
+//    //指定寻找
+//    else
+//    {
+//        [self doNativeCommand:command];
+//        return self;
+//    }
     
     return self;
 }
@@ -179,8 +179,8 @@
 
 - (void)doURLCommand:(AntCommand *)cmd
 {
-// scheme://host/path?query#fragment
-// https://www.baidu.com/a/index.html?a=1&b=2#part3
+
+    
     NSURL *url = [NSURL URLWithString:cmd.url];
     
     if ( !url )
@@ -189,105 +189,38 @@
         return;
     }
     
-    NSString *scheme = url.scheme;
-    NSString *host = url.host;
-    NSString *path = url.path;
-    NSString *query = url.query;
-    NSString *fragment = url.fragment;
+//    NSString *scheme = url.scheme;
+//    NSString *host = url.host;
+//    NSString *path = url.path;
+//    NSString *query = url.query;
+//    NSString *fragment = url.fragment;
     
-//    if ([scheme is:@"https"] || [scheme is:@"http"])
-//    {
-//        [DTContextGet() startApplication:@"20000067" params:params animated:YES];
-//    }
-//    
-//    
-//
-//       else if ([urlString hasPrefix:@"http://"] || [urlString hasPrefix:@"https://"]) {
-//        NSMutableDictionary * params = [[NSMutableDictionary alloc] initWithCapacity:6];
-//        if (tmpParams &&
-//            [tmpParams isKindOfClass:[NSDictionary class]] &&
-//            [tmpParams count] > 0) {
-//            [params addEntriesFromDictionary:tmpParams];
-//        }
-//        [params setObjectOrNil:urlString
-//                        forKey:@"url"];
-//        [params setObjectOrNil:@YES
-//                        forKey:@"showProgress"];
-//        [params setObjectOrNil:@"YES"
-//                        forKey:@"startMultApp"];
-//        [params setObjectOrNil:(customParams?:@"")
-//                        forKey:@"customParams"];
-//        [[self class] openRouterUrlCost:start];
-//        
-//        return [DTContextGet() startApplication:@"20000067" params:params animated:YES];
-//    }
-//    else {
-//        //拼接埋点数据
-//        
-//        NSMutableString * realSceheme = [[NSMutableString alloc] initWithString:urlString];
-//        if ([bizLogMonitor length] > 0) {
-//            [realSceheme appendFormat:@"&%@=%@",CCardSDKBizLogMonitor , bizLogMonitor];
-//        }
-//        if ([dtLogMonitor length] > 0) {
-//            [realSceheme appendFormat:@"&%@=%@",CCardSDKDTLogMonitor, dtLogMonitor];
-//        }
-//        if ([customParams length] > 0) {
-//            [realSceheme appendFormat:@"&%@=%@",@"customParams", customParams];
-//        }
-//        
-//        //  预处理
-//        NSString *preparedScheme = [CRouterCenter prepareScheme:realSceheme context:context];
-//        CLogInfo(preparedScheme);
-//        
-//        NSURL * url = [NSURL URLWithString:preparedScheme];
-//        if (!url) {
-//            NSString *logInfo = [NSString stringWithFormat:@"url encoding error %@", preparedScheme];
-//            CLogInfo(logInfo);
-//        }
-//        
-//        CLogInfo(([NSString stringWithFormat:@"open url : %@", preparedScheme]));
-//        
-//        id <DTSchemeService> service =  [DTContextGet() findServiceByName:@"DTSchemeService"];
-//        if (service && [service canHandleURL:url]) {
-//            NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
-//            
-//            [[self class] openRouterUrlCost:start];
-//            
-//            [userInfo setObjectOrNil:context forKey:CardSDKContextKey];
-//            return [service handleURL:url userInfo:userInfo];
-//        } else {
-//            [[self class] openRouterUrlCost:start];
-//            
-//            return [[UIApplication sharedApplication] openURL:url];
-//        }
-//    }
-//    
-
+    NSString *router =  [AntModuleManagerInstance findModule:url.scheme];
+    
+    Class routerClazz = NSClassFromString(router);
+    
+    if (!routerClazz)
+    {
+        [self changeStatus:AntCommandExecuteResultFailure];
+        return;
+    }
+    
+    id<AntRouter> routerTarget = __cachedTarget__[router];
+    
+    if (!routerTarget)
+    {
+       routerTarget = [routerClazz new];
+        [__cachedTarget__ setObject:routerTarget forKey:router];
+    }
+    
+    [routerTarget openUrl:url patch:cmd];
+    
     
 }
 
-- (void)doNativeCommand:(AntCommand *)cmd
-{
-    
-}
-
-
-
-
-//- (void)startapp
+//- (void)doNativeCommand:(AntCommand *)cmd
 //{
 //    
 //}
-//- (void)openUrl:(NSString *url) {
-//    PUSH,POP TARGET
-//    
-//    //alipays://asdf
-////alipays://platform?startapp=h5&param
-//    //
-//    if (urlList.find(head) {
-//        []
-//    }else {
-//        RETURN
-//    }
-//}
+
 @end

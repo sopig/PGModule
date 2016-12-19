@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1842DA5A1E0416AD00741187 /* AntRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1842DA571E0416AD00741187 /* AntRouter.m */; };
 		1842DA5B1E0416AD00741187 /* AntString.m in Sources */ = {isa = PBXBuildFile; fileRef = 1842DA591E0416AD00741187 /* AntString.m */; };
+		1842DA5E1E0796CB00741187 /* AntRouterCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1842DA5D1E0796CB00741187 /* AntRouterCenter.m */; };
 		18596E3F1E02713000263CEF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18596E3E1E02713000263CEF /* main.m */; };
 		18596E421E02713000263CEF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18596E411E02713000263CEF /* AppDelegate.m */; };
 		18596E451E02713000263CEF /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18596E441E02713000263CEF /* MasterViewController.m */; };
@@ -27,9 +27,10 @@
 
 /* Begin PBXFileReference section */
 		1842DA561E0416AD00741187 /* AntRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AntRouter.h; sourceTree = "<group>"; };
-		1842DA571E0416AD00741187 /* AntRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AntRouter.m; sourceTree = "<group>"; };
 		1842DA581E0416AD00741187 /* AntString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AntString.h; sourceTree = "<group>"; };
 		1842DA591E0416AD00741187 /* AntString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AntString.m; sourceTree = "<group>"; };
+		1842DA5C1E0796CB00741187 /* AntRouterCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AntRouterCenter.h; sourceTree = "<group>"; };
+		1842DA5D1E0796CB00741187 /* AntRouterCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AntRouterCenter.m; sourceTree = "<group>"; };
 		18596E3A1E02713000263CEF /* AntModulePlayground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AntModulePlayground.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18596E3E1E02713000263CEF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		18596E401E02713000263CEF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -117,7 +118,6 @@
 			isa = PBXGroup;
 			children = (
 				1842DA561E0416AD00741187 /* AntRouter.h */,
-				1842DA571E0416AD00741187 /* AntRouter.m */,
 				1842DA581E0416AD00741187 /* AntString.h */,
 				1842DA591E0416AD00741187 /* AntString.m */,
 				18596E581E02714200263CEF /* AntCommand.h */,
@@ -135,6 +135,8 @@
 				18596E641E02714200263CEF /* AntResident.m */,
 				18596E651E02714200263CEF /* AntRuntime.h */,
 				18596E661E02714200263CEF /* AntRuntime.m */,
+				1842DA5C1E0796CB00741187 /* AntRouterCenter.h */,
+				1842DA5D1E0796CB00741187 /* AntRouterCenter.m */,
 			);
 			path = AntModule;
 			sourceTree = "<group>";
@@ -212,13 +214,13 @@
 			files = (
 				18596E671E02714200263CEF /* AntCommand.m in Sources */,
 				18596E6A1E02714200263CEF /* AntModuleManager.m in Sources */,
-				1842DA5A1E0416AD00741187 /* AntRouter.m in Sources */,
 				18596E6D1E02714200263CEF /* AntRuntime.m in Sources */,
 				18596E421E02713000263CEF /* AppDelegate.m in Sources */,
 				18596E6C1E02714200263CEF /* AntResident.m in Sources */,
 				18596E691E02714200263CEF /* AntFunctionsHandler.m in Sources */,
 				18596E681E02714200263CEF /* AntCommandExecutor.m in Sources */,
 				1842DA5B1E0416AD00741187 /* AntString.m in Sources */,
+				1842DA5E1E0796CB00741187 /* AntRouterCenter.m in Sources */,
 				18596E451E02713000263CEF /* MasterViewController.m in Sources */,
 				18596E3F1E02713000263CEF /* main.m in Sources */,
 				18596E6B1E02714200263CEF /* AntNotification.m in Sources */,

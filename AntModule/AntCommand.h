@@ -25,6 +25,8 @@ typedef NS_ENUM(NSUInteger , AntCommandActionType)
 @interface AntCommand : NSObject
 
 //url方式描述 目标 + 动作 + 参数
+// scheme://host/path?query#fragment
+// https://www.baidu.com/a/index.html?a=1&b=2#part3
 @property (nonatomic , strong , nullable) NSString *url;
 
 /* 描述字符串（string）schema/反射描述 */
