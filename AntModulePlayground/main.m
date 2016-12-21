@@ -11,17 +11,9 @@
 #import "AntRuntime.h"
 
 
-
-AntAutoLoadBegin
-
-AntAutoLoadEnd
-
-
 int main(int argc, char * argv[]) {
     
-    NSLog(@"main");
-    
-    
+
     @autoreleasepool {
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }

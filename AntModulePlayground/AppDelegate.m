@@ -8,20 +8,34 @@
 
 #import "AppDelegate.h"
 #import "DetailViewController.h"
-
+#import "MasterViewController.h"
 @interface AppDelegate () <UISplitViewControllerDelegate>
 
 @end
 
 @implementation AppDelegate
 
+static UINavigationController *nav = nil;
+UINavigationController *stack ()
+{
+    return nav;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
-    UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
-    navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem;
-    splitViewController.delegate = self;
+    
+    _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    MasterViewController *main = [MasterViewController new];
+    UINavigationController *navigationController = [[UINavigationController alloc]initWithRootViewController:main];
+    nav = navigationController;
+    _window.rootViewController = navigationController;
+    [_window makeKeyAndVisible];
+    
+//    UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
+//    UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
+//    nav = navigationController;
+//    navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem;
+//    splitViewController.delegate = self;
     return YES;
 }
 

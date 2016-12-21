@@ -17,13 +17,7 @@
 
 @implementation DetailViewController
 
-- (void)antload
-{
-    AntRegisterModuleURI(@"com.DetailViewController");
-}
-
-
-//AntRegisterModuleURI(@"https://www.baidu.com/a/index.html#part3?a=1&b=2");
+module_mount();
 
 
 - (void)configureView {

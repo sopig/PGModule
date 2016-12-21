@@ -15,18 +15,19 @@
 #import "AntFunctionsHandler.h"
 #import "AntRuntime.h"
 
-@interface MasterViewController ()
+@interface MasterViewController ()<AntMount>
 
 @property NSMutableArray *objects;
 @end
 
 @implementation MasterViewController
 
-- (void)antload
-{
-    AntRegisterModuleURI(@"com.MasterViewController"); // 给一个默认的id
-}
+module_mount()
 
+//- (void)mount
+//{
+//    [AntModuleManagerInstance mount:self.class.URI  toClassName:NSStringFromClass(self.class)];
+//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -69,17 +70,18 @@
     
     NSLog(@"1");
     
-    AntCommandExecute(
-                      
-                      AntCommandCreate
-                      .bUrl(@"https://www.baidu.com/a/index.html?a=1&b=2#part3")
-                      .bTarget(@"com.DetailViewController")
-                      .bAction(@"a:")
-                      .bInput(@{@"k":@"v"})
-                      .bActionType(AntCommandActionTypeURL)
-                      
-                      );
     
+//    
+    runcmd(
+                              AntCommandCreate
+           .bUrl(@"com.ant.module://uimodule.12317020495322864946")
+//                      .bUrl(@"com.ant.module://servicemodule.2229706994103501265?a=b&c=d#part3")
+//
+                      .bInput([NSObject new])
+                      //.bActionType(CMDActionTypeURL)
+                      
+         );
+//
     
 #if 0
     if (!self.objects) {
